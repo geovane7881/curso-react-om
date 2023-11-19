@@ -5,12 +5,19 @@ import { Component } from 'react';
 class App extends Component {
   constructor(props) {
     super(props);
+    // bounding, necessário para que a função tenha o state acessível
+    this.handlePClick = this.handlePClick.bind(this);
 
     this.state = {
       name: 'Geovane Clemente'
     }
   }
 
+  handlePClick() {
+    const { name } = this.state;
+
+    console.log(`<p> Cliclado, Olá ${name}`)
+  }
 
   render() {
     const { name } = this.state;
@@ -19,7 +26,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
+          <p onClick={this.handlePClick}>
             { name }
           </p>
           <a
