@@ -3,18 +3,29 @@ import './App.css';
 import { Component } from 'react';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    // bounding, necessário para que a função tenha o state acessível
-    this.handlePClick = this.handlePClick.bind(this);
+  // constructor(props) {
+  //   super(props);
+  //   // bounding, necessário para que a função tenha o state acessível
+  //   this.handlePClick = this.handlePClick.bind(this);
 
-    this.state = {
-      name: 'Geovane Clemente',
-      counter: 0,
-    }
+  //   this.state = {
+  //     name: 'Geovane Clemente',
+  //     counter: 0,
+  //   }
+  // }
+  state = {
+    name: 'Geovane Clemente',
+    counter: 0,
   }
 
-  handlePClick() {
+  // handlePClick() {
+  //   // const { name } = this.state;
+  //   // console.log(`<p> Cliclado, Olá ${name}`)
+  //   this.setState({name: 'Olá Geovane!', counter: 0});    
+  // }
+  
+  // função trocada para arrow, para que seja acessado o this da classe
+  handlePClick = () => {
     // const { name } = this.state;
     // console.log(`<p> Cliclado, Olá ${name}`)
     this.setState({name: 'Olá Geovane!', counter: 0});    
@@ -25,6 +36,7 @@ class App extends Component {
     this.setState({counter: this.state.counter + 1})
   }
 
+  // Método de renderização chamado sempre que ocorre uma mudança no estado
   render() {
     const { name } = this.state;
     const { counter } = this.state;
